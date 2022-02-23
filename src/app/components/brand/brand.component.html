@@ -1,1 +1,12 @@
-<p>brand works!</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Brand Name</th>
+    </tr>
+  </thead>
+  <tr *ngFor="let item of brands">
+    <td>{{ item.id }}</td>
+    <td>{{ item.name }}</td>
+  </tr>
+</table>
