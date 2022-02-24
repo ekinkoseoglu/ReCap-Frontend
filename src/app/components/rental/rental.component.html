@@ -2,16 +2,22 @@
   <thead>
     <tr>
       <th>ID</th>
-      <th>Car ID</th>
+      <th>Brand Name</th>
+      <th>Customer Name</th>
       <th>Customer ID</th>
+      <th>User ID</th>
+      <th>Daily Price</th>
       <th>Rent Date</th>
       <th>Returned</th>
     </tr>
   </thead>
   <tr *ngFor="let item of rentals">
     <td>{{ item.id }}</td>
-    <td>{{ item.carId }}</td>
+    <td>{{ item.brandName }}</td>
+    <td>{{ item.customerName }}</td>
     <td>{{ item.customerId }}</td>
+    <td>{{ item.userId }}</td>
+    <td>{{ item.dailyPrice }}</td>
     <td>{{ item.rentDate }}</td>
     <td>{{ item.returnDate }}</td>
   </tr>
