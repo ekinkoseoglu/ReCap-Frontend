@@ -1,21 +1,24 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Car } from 'src/app/models/car';
-import { CarDto } from 'src/app/models/carDetails';
 import { CarService } from 'src/app/services/car/car.service';
+import { CarDto } from 'src/app/models/carDetails';
+import { CarDtoService } from 'src/app/services/car/car-dto.service';
 
 @Component({
   selector: 'app-car',
   templateUrl: './car.component.html',
   styleUrls: ['./car.component.css'],
 })
-export class CarComponent implements OnInit, OnChanges {
+export class CarComponent implements OnInit {
   cars: Car[] = [];
+  carDtos: CarDto[] = [];
   dataLoaded = false;
   // carDetails: CarDto[] = [];
   currentCar: Car;
   constructor(
     private carService: CarService,
+    private carDtoService: CarDtoService,
     private activatedRoute: ActivatedRoute
   ) {}
 
@@ -23,18 +26,16 @@ export class CarComponent implements OnInit, OnChanges {
     this.activatedRoute.params.subscribe((params) => {
       if (params['brandId']) {
         // Url içinde "brandId" adında bir Url parametresi varsa o path hangi template'de 'routeLink' içine yazılmışsa o templatenin Componentinden aldığın değeri bu Componentte kullanabilirsin.
-        this.getCarsByBrand(params['brandId']); // "brandId" propertysi x olan Car'ları listele
+        this.getCarDtosByBrand(params['brandId']); // "brandId" propertysi x olan Car'ları listele
       } else if (params['colorId']) {
-        // Url içinde "colorId" adında bir Url parametresi varsa o path hangi template'de 'routeLink' içine yazılmışsa o templatenin Componentinden aldığın değeri bu Componentte kullanabilirsin.
-        this.getCarsByColor(params['colorId']); //"colorId" propertysi x olan Car'ları listele
+        // Url içinde "colorId" adında bir Url parametresi varsa o Url parametresinin tanımlandığı path hangi template'de 'routeLink' içine yazılmışsa o templatenin Componentinden aldığın değeri bu Componentte kullanabilirsin.
+        this.getCarDtosByColor(params['colorId']); //"colorId" propertysi x olan Car'ları listele
       } // Eğer iki Url parametresi de Url de yoksa o zaman Component başladığı anda bu methodu çalıştır.
       else {
-        this.getCars();
+        this.getCarsDto();
       }
     });
   }
-
-  ngOnChanges(): void {}
 
   getCarsByColor(id: number) {
     this.carService.getByColorId(id).subscribe((response) => {
@@ -47,9 +48,29 @@ export class CarComponent implements OnInit, OnChanges {
       this.cars = response.data;
     });
   }
+
+  getCarsDto() {
+    this.carDtoService.getCarsDto().subscribe((response) => {
+      this.carDtos = response.data;
+    });
+  }
   getCars() {
     this.carService.getCars().subscribe((response) => {
       this.cars = response.data;
+    });
+  }
+
+  // Car DTO Methods
+
+  getCarDtosByColor(id: number) {
+    this.carDtoService.getByColorId(id).subscribe((response) => {
+      this.carDtos = response.data;
+    });
+  }
+
+  getCarDtosByBrand(id: number) {
+    this.carDtoService.getByBrandId(id).subscribe((response) => {
+      this.carDtos = response.data;
     });
   }
 }
