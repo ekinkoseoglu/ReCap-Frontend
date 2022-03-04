@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Car } from 'src/app/models/car';
-import { CarDto } from 'src/app/models/carDetails';
 import { ListResponseModel } from 'src/app/models/listResponseModel';
 
 @Injectable({
