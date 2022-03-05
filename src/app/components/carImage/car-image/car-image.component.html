@@ -1,0 +1,14 @@
+<div class="card-group">
+  <div *ngFor="let image of currentCarDtoImages" class="card">
+    <img [src]="srcImg" class="card-img-top" alt="..." />
+    <div class="card-body">
+      <h5 class="card-title">
+        {{ currentCarDto.carName }}
+      </h5>
+      <p class="card-text">
+        {{ image.date }}
+      </p>
+      <br />
+    </div>
+  </div>
+</div>

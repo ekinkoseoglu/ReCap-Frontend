@@ -11,6 +11,7 @@ import { NaviComponent } from './components/navi/navi.component';
 import { RentalComponent } from './components/rental/rental.component';
 import { CustomerComponent } from './components/customer/customer.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CarImageComponent } from './components/carImage/car-image/car-image.component';
 
 @NgModule({
   declarations: [
@@ -21,8 +22,9 @@ import { HttpClientModule } from '@angular/common/http';
     NaviComponent,
     RentalComponent,
     CustomerComponent,
+    CarImageComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, NgbModule],
   providers: [],
   bootstrap: [AppComponent],
 })
