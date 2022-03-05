@@ -32,8 +32,15 @@
             Cars
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li>
+              <a
+                *ngFor="let cardto of carDtoList"
+                class="dropdown-item"
+                [routerLink]="['cars/image/', cardto.id]"
+                >{{ cardto.description }}</a
+              >
+            </li>
+
             <li><hr class="dropdown-divider" /></li>
             <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
