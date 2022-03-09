@@ -21,4 +21,8 @@ export class CarImageService {
     let localApi = this.ApiUrl + 'getbycarid?CarId=' + id;
     return this.httpClient.get<ListResponseModel<CarImage>>(localApi);
   }
+  getImagesByCarDtoId(id: number): Observable<ListResponseModel<CarImage>> {
+    let localApi = this.ApiUrl + 'getbycardtoid?id=' + id;
+    return this.httpClient.get<ListResponseModel<CarImage>>(localApi);
+  }
 }

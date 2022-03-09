@@ -1,4 +1,4 @@
-<li class="nav-item dropdown">
+<li *ngIf="carDtoList" class="nav-item dropdown">
   <a
     class="nav-link dropdown-toggle"
     href="#"
@@ -11,7 +11,7 @@
   </a>
   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
     <li *ngFor="let cardto of carDtoList">
-      <a class="dropdown-item" routerLink="['cars/image/', cardto.id]">{{
+      <a class="dropdown-item" [routerLink]="['cars/image/', cardto.id]">{{
         cardto.description
       }}</a>
     </li>
