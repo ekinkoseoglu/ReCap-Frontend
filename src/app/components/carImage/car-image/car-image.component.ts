@@ -14,9 +14,8 @@ import { CarImageService } from 'src/app/services/carImage/car-image.service';
 export class CarImageComponent implements OnInit {
   currentCarDto: CarDto;
   currentDtoImages: CarImage[];
-  imageBasePath: string =
-    'C:/Users/ekind/Desktop/Codes/C#/ReCapProject/WebAPI/wwwroot';
-  trustedUrl: SafeUrl;
+  imageBasePath: string = 'https://localhost:44391';
+
   constructor(
     private CarDtoService: CarDtoService,
     private CarImageService: CarImageService,
@@ -40,12 +39,7 @@ export class CarImageComponent implements OnInit {
       this.currentDtoImages = response.data.carImages;
     });
   }
-  setCurrentCarImages() {
-    for (let i = 0; i < this.currentDtoImages.length; i++) {
-      const image = this.currentDtoImages[i];
-      image.imageUrl = this.imageBasePath + image.imageUrl;
-    }
-  }
+
   getAllImages() {
     this.CarImageService.getAllImages().subscribe();
   }

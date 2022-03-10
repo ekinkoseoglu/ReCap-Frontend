@@ -4,16 +4,18 @@
     class="card"
     style="width: 18rem"
   >
-    <img
-      class="card-img-top"
-      [src]="domSanitizer.bypassSecurityTrustUrl(images.imageUrl)"
-    />
-
+    <img class="card-img-top" [src]="imageBasePath + images.imageUrl" />
     <div class="card-body">
-      <h5 class="card-title">{{ currentCarDto.carName }}</h5>
+      <h5 class="card-title">{{ currentCarDto.brandName }}</h5>
       <p class="card-text">
         {{ currentCarDto.description }}
       </p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">{{ currentCarDto.dailyPrice | currency }}</li>
+    </ul>
+    <div class="card-body">
+      <button class="card-link btn btn-primary">Rent</button>
     </div>
   </div>
 </div>
