@@ -12,6 +12,7 @@ export class BrandComponent implements OnInit {
   dataLoaded = false;
   currentBrand: Brand;
   class: string;
+  searchString: string;
   constructor(private brandService: BrandService) {}
 
   ngOnInit(): void {
@@ -25,6 +26,9 @@ export class BrandComponent implements OnInit {
     });
   }
 
+  resetSearchString() {
+    this.searchString == '';
+  }
   setCurrentBrand(brand: Brand) {
     this.currentBrand = brand;
   }

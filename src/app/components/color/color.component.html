@@ -1,11 +1,20 @@
 <h2>Colors</h2>
-<ul class="list-group">
-  <li
-    [class]="getColorListClass(item)"
-    routerLink="cars/color/{{ item.id }}"
-    (click)="setCurrentColor(item)"
-    *ngFor="let item of colors"
-  >
-    {{ item.name }}
-  </li>
-</ul>
+<div class="mb-3">
+  <input
+    type="colour"
+    class="form-control list-group-item-action list-group-item-primary"
+    [(ngModel)]="searchString"
+    id="searchString"
+    placeholder="Color Search"
+  />
+  <ul class="list-group">
+    <li
+      [class]="getColorListClass(item)"
+      routerLink="cars/color/{{ item.id }}"
+      (click)="setCurrentColor(item)"
+      *ngFor="let item of colors | filter: searchString"
+    >
+      {{ item.name }}
+    </li>
+  </ul>
+</div>

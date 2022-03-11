@@ -14,7 +14,7 @@ export class CarComponent implements OnInit {
   cars: Car[] = [];
   carDtos: CarDto[] = [];
   dataLoaded = false;
-  searchString: string;
+  searchString: string = '';
   // carDetails: CarDto[] = [];
   currentCar: Car;
   constructor(
