@@ -13,9 +13,9 @@ import { CustomerComponent } from './components/customer/customer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CarImageComponent } from './components/carImage/car-image/car-image.component';
 import { CarListComponent } from './components/navi/car-list/car-list.component';
-import { FilterPipe } from './pipes/filter.pipe';
 import { FormsModule } from '@angular/forms';
 import { FilterCarPipe } from './pipes/filter-car.pipe';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
