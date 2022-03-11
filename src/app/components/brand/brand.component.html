@@ -1,11 +1,21 @@
 <h2>Brands</h2>
-<ul class="list-group">
-  <li
-    [class]="getBrandListClass(item)"
-    [routerLink]="['cars/brand/', item.id]"
-    (click)="setCurrentBrand(item)"
-    *ngFor="let item of brands"
-  >
-    {{ item.name }}
-  </li>
-</ul>
+<div class="mb-3">
+  <input
+    type="brand"
+    class="form-control list-group-item-action list-group-item-primary"
+    [(ngModel)]="searchString"
+    id="searchString"
+    placeholder="Brands Search"
+  />
+
+  <ul class="list-group">
+    <li
+      [class]="getBrandListClass(item)"
+      [routerLink]="['cars/brand/', item.id]"
+      (click)="setCurrentBrand(item)"
+      *ngFor="let item of brands | filter: searchString"
+    >
+      {{ item.name }}
+    </li>
+  </ul>
+</div>

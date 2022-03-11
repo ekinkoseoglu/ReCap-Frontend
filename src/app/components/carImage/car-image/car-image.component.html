@@ -1,14 +1,21 @@
-<div class="card-group">
-  <div *ngFor="let image of currentCarDtoImages" class="card">
-    <img [src]="srcImg" class="card-img-top" alt="..." />
+<div class="row">
+  <div
+    *ngFor="let images of currentDtoImages"
+    class="card"
+    style="width: 18rem"
+  >
+    <img class="card-img-top" [src]="imageBasePath + images.imageUrl" />
     <div class="card-body">
-      <h5 class="card-title">
-        {{ currentCarDto.carName }}
-      </h5>
+      <h5 class="card-title">{{ currentCarDto.brandName }}</h5>
       <p class="card-text">
-        {{ image.date }}
+        {{ currentCarDto.description }}
       </p>
-      <br />
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">{{ currentCarDto.dailyPrice | currency }}</li>
+    </ul>
+    <div class="card-body">
+      <button class="card-link btn btn-primary">Rent</button>
     </div>
   </div>
 </div>
