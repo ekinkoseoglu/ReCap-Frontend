@@ -5,9 +5,10 @@ import { CarImageComponent } from './components/carImage/car-image/car-image.com
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: CarComponent },
-  { path: 'cars/:id', component: CarImageComponent },
+  { path: 'cars', component: CarComponent },
   { path: 'cars/brand/:brandId', component: CarComponent },
   { path: 'cars/color/:colorId', component: CarComponent },
+  { path: 'cars/color/:colorId/brand/:brandId', component: CarComponent },
   { path: 'cars/image/:Id', component: CarImageComponent },
 ];
 

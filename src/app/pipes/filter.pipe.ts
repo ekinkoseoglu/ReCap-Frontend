@@ -5,12 +5,20 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class FilterPipe implements PipeTransform {
   transform(entityList: any[], filter: string): any[] {
+    let filteredList = entityList;
     if (filter) {
-      filter = filter.toLocaleLowerCase();
-      return entityList.filter((c) =>
-        c.name.toLocaleLowerCase().includes(filter)
-      );
+      filteredList = [];
+      filter = filter.toLowerCase();
+      entityList.forEach((c) => {
+        Object.keys(c).forEach((key, i) => {
+          if (key.toLowerCase().includes('name')) {
+            if (c[key].toLowerCase().includes(filter)) {
+              filteredList.push(c);
+            }
+          }
+        });
+      });
     }
-    return entityList;
+    return filteredList;
   }
 }

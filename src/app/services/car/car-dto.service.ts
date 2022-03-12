@@ -33,4 +33,19 @@ export class CarDtoService {
     let localApi = this.apiUrl + 'getalldtosbycolor?id=' + id;
     return this.httpClient.get<ListResponseModel<CarDto>>(localApi);
   }
+
+  getByBrandIdColorId(
+    brandId: number,
+    colorId: number
+  ): Observable<ListResponseModel<CarDto>> {
+    let localApi =
+      this.apiUrl +
+      'getdtobybrandidcolorid?BrandId=' +
+      brandId +
+      '&' +
+      'ColorId=' +
+      colorId;
+
+    return this.httpClient.get<ListResponseModel<CarDto>>(localApi);
+  }
 }

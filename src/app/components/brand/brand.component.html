@@ -1,21 +1,20 @@
 <h2>Brands</h2>
-<div class="mb-3">
-  <input
-    type="brand"
-    class="form-control list-group-item-action list-group-item-primary"
-    [(ngModel)]="searchString"
-    id="searchString"
-    placeholder="Brands Search"
-  />
 
-  <ul class="list-group">
+<div class="form-check" *ngFor="let item of brands | filter: searchString">
+  <ul>
     <li
       [class]="getBrandListClass(item)"
       [routerLink]="['cars/brand/', item.id]"
       (click)="setCurrentBrand(item)"
-      *ngFor="let item of brands | filter: searchString"
     >
-      {{ item.name }}
+      <input
+        class="form-check-input"
+        type="radio"
+        [(ngModel)]="searchString"
+        [id]="item.id"
+        placeholder="Brands Search"
+      />
+      <label class="form-check-label" [for]="item.id">{{ item.name }} </label>
     </li>
   </ul>
 </div>

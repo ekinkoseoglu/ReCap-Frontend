@@ -13,6 +13,7 @@ export class BrandComponent implements OnInit {
   currentBrand: Brand;
   class: string;
   searchString: string;
+  selectedOption: string;
   constructor(private brandService: BrandService) {}
 
   ngOnInit(): void {
