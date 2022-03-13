@@ -40,10 +40,9 @@ export class CarDtoService {
   ): Observable<ListResponseModel<CarDto>> {
     let localApi =
       this.apiUrl +
-      'getdtobybrandidcolorid?BrandId=' +
+      'getdtosbybrandidcolorid?BrandId=' +
       brandId +
-      '&' +
-      'ColorId=' +
+      '&ColorId=' +
       colorId;
 
     return this.httpClient.get<ListResponseModel<CarDto>>(localApi);

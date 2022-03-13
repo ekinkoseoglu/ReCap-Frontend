@@ -1,0 +1,32 @@
+<div class="Brand-Select-Form">
+  <h3>BRAND</h3>
+  <select
+    [(ngModel)]="brandId"
+    class="form-select"
+    aria-label="Default select example"
+    placeholder="Select a brand"
+  >
+    <option value="" selected>Select your Brand</option>
+    <option [ngValue]="brand.id" *ngFor="let brand of brandList">
+      {{ brand.name }}
+    </option>
+  </select>
+</div>
+
+<div>
+  <h3>COLOR</h3>
+  <select
+    [(ngModel)]="colorId"
+    class="form-select"
+    aria-label="Default select example"
+  >
+    <option value="" selected>Select your Color</option>
+    <option [ngValue]="color.id" *ngFor="let color of colorList">
+      {{ color.name }}
+    </option>
+  </select>
+</div>
+
+<button id="filetButton" class="btn btn-primary" (click)="getIdValues()">
+  Filter
+</button>

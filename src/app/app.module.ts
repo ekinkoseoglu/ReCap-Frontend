@@ -16,6 +16,7 @@ import { CarListComponent } from './components/navi/car-list/car-list.component'
 import { FormsModule } from '@angular/forms';
 import { FilterCarPipe } from './pipes/filter-car.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
+import { FilterComponent } from './components/filter/filter.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { FilterPipe } from './pipes/filter.pipe';
     CarListComponent,
     FilterPipe,
     FilterCarPipe,
+    FilterComponent,
   ],
   imports: [
     BrowserModule,
