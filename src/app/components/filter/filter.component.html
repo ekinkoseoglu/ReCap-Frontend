@@ -2,7 +2,7 @@
   <h3>BRAND</h3>
   <select
     [(ngModel)]="brandId"
-    class="form-select"
+    class="form-select bg-success bg-opacity-25"
     aria-label="Default select example"
     placeholder="Select a brand"
   >
@@ -17,11 +17,17 @@
   <h3>COLOR</h3>
   <select
     [(ngModel)]="colorId"
-    class="form-select"
+    class="form-select bg-success bg-opacity-25"
     aria-label="Default select example"
   >
-    <option value="" selected>Select your Color</option>
-    <option [ngValue]="color.id" *ngFor="let color of colorList">
+    <option class="bg-primary opacity-25" value="" selected>
+      Select your Color
+    </option>
+    <option
+      class="p-3 mb-2 bg-info opacity-25"
+      [ngValue]="color.id"
+      *ngFor="let color of colorList"
+    >
       {{ color.name }}
     </option>
   </select>
