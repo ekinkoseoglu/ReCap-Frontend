@@ -15,6 +15,8 @@ export class CarImageComponent implements OnInit {
   currentCarDto: CarDto;
   currentDtoImages: CarImage[];
   imageBasePath: string = 'https://localhost:44391';
+  rentDate: Date;
+  returnDate: Date;
 
   constructor(
     private carDtoService: CarDtoService,
@@ -34,7 +36,11 @@ export class CarImageComponent implements OnInit {
   }
 
   addToCart(carDto: CarDto) {
-    this.toastrService.success('Added to cart successfully');
+    if (this.rentDate > this.returnDate) {
+      this.toastrService.error('Return Date c...');
+    } else {
+      this.toastrService.success('Added to cart successfully');
+    }
   }
   getCurrentCarDto(id: number) {
     this.carDtoService.getDtoById(id).subscribe((response) => {
