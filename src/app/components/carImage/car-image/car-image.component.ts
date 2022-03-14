@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { CarImage } from 'src/app/models/car-Image';
 import { CarDto } from 'src/app/models/carDetails';
 import { CarDtoService } from 'src/app/services/car/car-dto.service';
-import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { CarImageService } from 'src/app/services/carImage/car-image.service';
 
 @Component({
@@ -17,10 +17,10 @@ export class CarImageComponent implements OnInit {
   imageBasePath: string = 'https://localhost:44391';
 
   constructor(
-    private CarDtoService: CarDtoService,
-    private CarImageService: CarImageService,
+    private carDtoService: CarDtoService,
+    private carImageService: CarImageService,
     private activatedRoute: ActivatedRoute,
-    public domSanitizer: DomSanitizer
+    private toastrService: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -33,14 +33,17 @@ export class CarImageComponent implements OnInit {
     });
   }
 
+  addToCart(carDto: CarDto) {
+    this.toastrService.success('Added to cart successfully');
+  }
   getCurrentCarDto(id: number) {
-    this.CarDtoService.getDtoById(id).subscribe((response) => {
+    this.carDtoService.getDtoById(id).subscribe((response) => {
       this.currentCarDto = response.data;
       this.currentDtoImages = response.data.carImages;
     });
   }
 
   getAllImages() {
-    this.CarImageService.getAllImages().subscribe();
+    this.carImageService.getAllImages().subscribe();
   }
 }

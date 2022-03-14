@@ -9,6 +9,7 @@ import { CarDtoService } from 'src/app/services/car/car-dto.service';
 })
 export class CarListComponent implements OnInit {
   carDtoList: CarDto[] = [];
+  currentCarDto: CarDto;
   constructor(private carDtoService: CarDtoService) {}
 
   ngOnInit(): void {

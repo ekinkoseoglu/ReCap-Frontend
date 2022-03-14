@@ -17,7 +17,8 @@ import { FormsModule } from '@angular/forms';
 import { FilterCarPipe } from './pipes/filter-car.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
 import { FilterComponent } from './components/filter/filter.component';
-
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +40,10 @@ import { FilterComponent } from './components/filter/filter.component';
     HttpClientModule,
     NgbModule,
     FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-bottom-right',
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],

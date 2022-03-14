@@ -1,21 +1,25 @@
 <div class="row">
+  <div *ngIf="currentCarDto" id="description">
+    <strong>
+      {{ currentCarDto.description }}
+    </strong>
+    <p>
+      {{ currentCarDto.dailyPrice | currency }}
+    </p>
+
+    <button
+      (click)="addToCart(currentCarDto)"
+      class="card-link btn btn-primary"
+    >
+      Rent
+    </button>
+  </div>
   <div
     *ngFor="let images of currentDtoImages"
     class="card"
     style="width: 18rem"
   >
     <img class="card-img-top" [src]="imageBasePath + images.imageUrl" />
-    <div class="card-body">
-      <h5 class="card-title">{{ currentCarDto.brandName }}</h5>
-      <p class="card-text">
-        {{ currentCarDto.description }}
-      </p>
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">{{ currentCarDto.dailyPrice | currency }}</li>
-    </ul>
-    <div class="card-body">
-      <button class="card-link btn btn-primary">Rent</button>
-    </div>
+    <div class="card-body"></div>
   </div>
 </div>
