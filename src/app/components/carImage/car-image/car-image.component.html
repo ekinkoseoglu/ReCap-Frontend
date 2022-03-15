@@ -1,42 +1,10 @@
 <div class="row">
-  <div *ngIf="currentCarDto" class="p-2 mb-2">
-    <strong>
-      {{ currentCarDto.description }}
-    </strong>
-    <p>
-      {{ currentCarDto.dailyPrice | currency }}
-    </p>
-
-    <div class="p-3 mb-2 bg-info bg-opacity-50 rounded">
-      <span class="p-3"
-        ><label class="p-2" for="rentDate">Rent Date</label>
-        <input
-          type="date"
-          name="rentDate"
-          id="rentDate"
-          [(ngModel)]="rentDate"
-        />
-      </span>
-      <span class="p-2">
-        <label class="p-2" for="returnDate">Return Date</label>
-        <input
-          type="date"
-          name="returnDate"
-          id="returnDate"
-          [(ngModel)]="returnDate"
-        />
-      </span>
-
-      <button
-        id="RentButton"
-        class="form-control"
-        (click)="addToCart(currentCarDto)"
-        class="card-link btn btn-primary"
-      >
-        Rent
-      </button>
-    </div>
-  </div>
+  <strong>
+    {{ currentCarDto.description }}
+  </strong>
+  <p>
+    {{ currentCarDto.dailyPrice | currency }}
+  </p>
   <div
     *ngFor="let images of currentDtoImages"
     class="card"

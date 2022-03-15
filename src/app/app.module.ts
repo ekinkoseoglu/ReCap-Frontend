@@ -19,6 +19,7 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { FilterComponent } from './components/filter/filter.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CartComponent } from './components/navi/cart/cart.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +34,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FilterPipe,
     FilterCarPipe,
     FilterComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,

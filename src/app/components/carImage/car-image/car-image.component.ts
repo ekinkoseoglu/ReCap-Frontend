@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { CarImage } from 'src/app/models/car-Image';
 import { CarDto } from 'src/app/models/carDetails';
@@ -15,14 +15,13 @@ export class CarImageComponent implements OnInit {
   currentCarDto: CarDto;
   currentDtoImages: CarImage[];
   imageBasePath: string = 'https://localhost:44391';
-  rentDate: Date;
-  returnDate: Date;
 
   constructor(
     private carDtoService: CarDtoService,
     private carImageService: CarImageService,
     private activatedRoute: ActivatedRoute,
-    private toastrService: ToastrService
+    private toastrService: ToastrService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -35,13 +34,6 @@ export class CarImageComponent implements OnInit {
     });
   }
 
-  addToCart(carDto: CarDto) {
-    if (this.rentDate > this.returnDate) {
-      this.toastrService.error('Return Date c...');
-    } else {
-      this.toastrService.success('Added to cart successfully');
-    }
-  }
   getCurrentCarDto(id: number) {
     this.carDtoService.getDtoById(id).subscribe((response) => {
       this.currentCarDto = response.data;
