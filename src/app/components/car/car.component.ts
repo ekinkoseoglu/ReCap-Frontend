@@ -4,6 +4,9 @@ import { Car } from 'src/app/models/car';
 import { CarService } from 'src/app/services/car/car.service';
 import { CarDto } from 'src/app/models/carDetails';
 import { CarDtoService } from 'src/app/services/car/car-dto.service';
+import { ToastrService } from 'ngx-toastr';
+import { CartService } from 'src/app/services/cart/cart.service';
+import { RentalService } from 'src/app/services/rental/rental.service';
 
 @Component({
   selector: 'app-car',
@@ -16,11 +19,17 @@ export class CarComponent implements OnInit {
   dataLoaded = false;
   searchString: string = '';
   // carDetails: CarDto[] = [];
-  currentCar: Car;
+  currentCarDto: CarDto;
+  rentDate: Date;
+  returnDate: Date;
+
   constructor(
     private carService: CarService,
     private carDtoService: CarDtoService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private toastrService: ToastrService,
+    private cartService: CartService,
+    private rentalService: RentalService
   ) {}
 
   ngOnInit(): void {
@@ -80,6 +89,17 @@ export class CarComponent implements OnInit {
   getCarDtosByBrand(id: number) {
     this.carDtoService.getByBrandId(id).subscribe((response) => {
       this.carDtos = response.data;
+    });
+  }
+
+  addToCart(carDto: CarDto) {
+    this.rentalService.getByCarId(carDto.id).subscribe((response) => {
+      if (response.data != null) {
+        this.toastrService.error('Car is not available');
+      } else {
+        this.cartService.addToCart(carDto);
+        this.toastrService.success('Added to cart successfully');
+      }
     });
   }
 }

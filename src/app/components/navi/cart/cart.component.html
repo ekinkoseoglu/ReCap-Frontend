@@ -1,0 +1,28 @@
+<li *ngIf="cartItems.length > 0" class="nav-item dropdown">
+  <a
+    class="nav-link dropdown-toggle"
+    id="navbarDropdown"
+    role="button"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    Cart
+  </a>
+  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+    <li *ngFor="let item of cartItems">
+      {{ item.carDto.carName }}
+      <a>
+        <span id="badge" class="badge badge-warning">{{
+          item.quantity
+        }}</span></a
+      >
+    </li>
+
+    <li><hr class="dropdown-divider" /></li>
+    <li>
+      <button [routerLink]="['pay']" class="btn btn-whtie">
+        Show All Rents
+      </button>
+    </li>
+  </ul>
+</li>
