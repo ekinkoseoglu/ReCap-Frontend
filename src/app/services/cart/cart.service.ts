@@ -15,10 +15,10 @@ export class CartService {
     if (itemToAdd) {
       itemToAdd.quantity += 1;
     } else {
-      let carItem: CartItem;
-      carItem.quantity = 1;
-      carItem.carDto = carDto;
-      CartItems.push(carItem);
+      let cartItem = new CartItem();
+      cartItem.carDto = carDto;
+      cartItem.quantity = 1;
+      CartItems.push(cartItem);
     }
   }
 

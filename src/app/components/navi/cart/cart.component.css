@@ -1,0 +1,13 @@
+#badge{
+     
+        /*DECORATION*/
+        background-color: black; 
+        color: white;
+        
+        /*This is important*/
+        /*set container in the same line*/
+        display: inline-block; 
+        /*ensure a constant separation between text and badge*/
+        margin-left: 10px;
+    
+}

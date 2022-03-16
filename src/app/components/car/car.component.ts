@@ -6,6 +6,7 @@ import { CarDto } from 'src/app/models/carDetails';
 import { CarDtoService } from 'src/app/services/car/car-dto.service';
 import { ToastrService } from 'ngx-toastr';
 import { CartService } from 'src/app/services/cart/cart.service';
+import { RentalService } from 'src/app/services/rental/rental.service';
 
 @Component({
   selector: 'app-car',
@@ -27,7 +28,8 @@ export class CarComponent implements OnInit {
     private carDtoService: CarDtoService,
     private activatedRoute: ActivatedRoute,
     private toastrService: ToastrService,
-    private cartService: CartService
+    private cartService: CartService,
+    private rentalService: RentalService
   ) {}
 
   ngOnInit(): void {
@@ -91,13 +93,13 @@ export class CarComponent implements OnInit {
   }
 
   addToCart(carDto: CarDto) {
-    if (this.rentDate > this.returnDate) {
-      this.toastrService.error('Return Date Cannot be Early Than Rent Date');
-    } else if (this.rentDate == null) {
-      this.toastrService.error('Your Rent Date Cannot Be Null');
-    } else {
-      this.toastrService.success('Added to cart successfully');
-      this.cartService.addToCart(carDto);
-    }
+    this.rentalService.getByCarId(carDto.id).subscribe((response) => {
+      if (response.data != null) {
+        this.toastrService.error('Car is not available');
+      } else {
+        this.cartService.addToCart(carDto);
+        this.toastrService.success('Added to cart successfully');
+      }
+    });
   }
 }

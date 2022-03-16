@@ -1,4 +1,4 @@
-<li *ngIf="cartItems" class="nav-item dropdown">
+<li *ngIf="cartItems.length > 0" class="nav-item dropdown">
   <a
     class="nav-link dropdown-toggle"
     id="navbarDropdown"
@@ -10,10 +10,19 @@
   </a>
   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
     <li *ngFor="let item of cartItems">
-      <a class="dropdown-item">{{ item.carDto.carName }}</a>
+      {{ item.carDto.carName }}
+      <a>
+        <span id="badge" class="badge badge-warning">{{
+          item.quantity
+        }}</span></a
+      >
     </li>
 
     <li><hr class="dropdown-divider" /></li>
-    <li><a class="dropdown-item" href="#">Something else here</a></li>
+    <li>
+      <button [routerLink]="['pay']" class="btn btn-whtie">
+        Show All Rents
+      </button>
+    </li>
   </ul>
 </li>

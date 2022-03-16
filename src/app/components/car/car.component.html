@@ -66,7 +66,7 @@
         <td>{{ item.description }}</td>
         <td>
           <button
-            *ngIf="rentDate"
+            *ngIf="rentDate && returnDate && returnDate > rentDate"
             id="RentButton"
             class="btn btn-success bg-opacity-25"
             (click)="addToCart(item)"
