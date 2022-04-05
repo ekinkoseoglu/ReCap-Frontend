@@ -4,7 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { NgPaymentCardModule } from 'ng-payment-card';
 
@@ -38,14 +38,14 @@ import { BrandAddComponent } from './components/addComponents/brand-add/brand-ad
     CustomerComponent,
     CarImageComponent,
     CarListComponent,
-    FilterPipe,
-    FilterCarPipe,
     FilterComponent,
     CartComponent,
     PayComponent,
     CarAddComponent,
     ColorAddComponent,
     BrandAddComponent,
+    FilterPipe,
+    FilterCarPipe,
   ],
   imports: [
     BrowserModule,
@@ -53,6 +53,7 @@ import { BrandAddComponent } from './components/addComponents/brand-add/brand-ad
     HttpClientModule,
     NgbModule,
     FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right',
