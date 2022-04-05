@@ -1,80 +1,87 @@
-<div class="form-group">
-  <div>
-    <label for="exampleFormControlInput1">Search Car</label>
-    <input
-      type="carDtos"
-      class="form-control"
-      [(ngModel)]="searchString"
-      id="carSearchInput"
-      placeholder="Search For Car..."
-    />
-    <div>
-      <div
-        *ngIf="searchString.length > 3"
-        width="300px"
-        class="form-control bg-danger bg-opacity-25"
-      >
-        Searched for:
-        {{ searchString }}
-      </div>
-    </div>
+<div class="row">
+  <div class="col-md-4">
+    <app-filter></app-filter>
   </div>
-
-  <div *ngIf="carDtos.length > 0" class="p-2 mb-2">
-    <div class="p-2 mb-2 bg-info bg-opacity-50 rounded">
-      <span class="p-3"
-        ><label class="p-2" for="rentDate">Rent Date</label>
+  <div class="col-md-8">
+    <div class="form-group">
+      <div>
+        <label for="exampleFormControlInput1">Search Car</label>
         <input
-          type="date"
-          name="rentDate"
-          id="rentDate"
-          [(ngModel)]="rentDate"
+          type="carDtos"
+          class="form-control"
+          [(ngModel)]="searchString"
+          id="carSearchInput"
+          placeholder="Search For Car..."
         />
-      </span>
-      <span class="p-2">
-        <label class="p-2" for="returnDate">Return Date</label>
-        <input
-          type="date"
-          name="returnDate"
-          id="returnDate"
-          [(ngModel)]="returnDate"
-        />
-      </span>
-    </div>
-  </div>
-
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Car Id</th>
-        <th>Car Name</th>
-        <th>Brand Name</th>
-        <th>Color Name</th>
-        <th>Model Year</th>
-        <th>Daily Price</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of carDtos | filter: searchString">
-        <td>{{ item.id }}</td>
-        <td>{{ item.carName }}</td>
-        <td>{{ item.brandName }}</td>
-        <td>{{ item.colorName }}</td>
-        <td>{{ item.modelYear }}</td>
-        <td>{{ item.dailyPrice }}</td>
-        <td>{{ item.description }}</td>
-        <td>
-          <button
-            *ngIf="rentDate && returnDate && returnDate > rentDate"
-            id="RentButton"
-            class="btn btn-success bg-opacity-25"
-            (click)="addToCart(item)"
+        <div>
+          <div
+            *ngIf="searchString.length > 3"
+            width="300px"
+            class="form-control bg-danger bg-opacity-25"
           >
-            Rent
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+            Searched for:
+            {{ searchString }}
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="carDtos.length > 0" class="p-2 mb-2">
+        <div class="p-2 mb-2 bg-info bg-opacity-50 rounded">
+          <span class="p-3"
+            ><label class="p-2" for="rentDate">Rent Date</label>
+            <input
+              type="date"
+              name="rentDate"
+              id="rentDate"
+              [(ngModel)]="rentDate"
+            />
+          </span>
+          <span class="p-2">
+            <label class="p-2" for="returnDate">Return Date</label>
+            <input
+              type="date"
+              name="returnDate"
+              id="returnDate"
+              [(ngModel)]="returnDate"
+            />
+          </span>
+        </div>
+      </div>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Car Id</th>
+            <th>Car Name</th>
+            <th>Brand Name</th>
+            <th>Color Name</th>
+            <th>Model Year</th>
+            <th>Daily Price</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of carDtos | filter: searchString">
+            <td>{{ item.id }}</td>
+            <td>{{ item.carName }}</td>
+            <td>{{ item.brandName }}</td>
+            <td>{{ item.colorName }}</td>
+            <td>{{ item.modelYear }}</td>
+            <td>{{ item.dailyPrice }}</td>
+            <td>{{ item.description }}</td>
+            <td>
+              <button
+                *ngIf="rentDate && returnDate && returnDate > rentDate"
+                id="RentButton"
+                class="btn btn-success bg-opacity-25"
+                (click)="addToCart(item)"
+              >
+                Rent
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>

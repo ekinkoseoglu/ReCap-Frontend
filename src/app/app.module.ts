@@ -23,6 +23,9 @@ import { PayComponent } from './components/pay/pay.component';
 
 import { FilterPipe } from './pipes/filter.pipe';
 import { FilterCarPipe } from './pipes/filter-car.pipe';
+import { CarAddComponent } from './components/addComponents/car-add/car-add.component';
+import { ColorAddComponent } from './components/addComponents/color-add/color-add.component';
+import { BrandAddComponent } from './components/addComponents/brand-add/brand-add.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +43,9 @@ import { FilterCarPipe } from './pipes/filter-car.pipe';
     FilterComponent,
     CartComponent,
     PayComponent,
+    CarAddComponent,
+    ColorAddComponent,
+    BrandAddComponent,
   ],
   imports: [
     BrowserModule,

@@ -24,8 +24,22 @@
         <li class="nav-item"><app-car-list></app-car-list></li>
         <li class="nav-item"><app-cart></app-cart></li>
 
-        <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            id="navbarDropdownMenuLink"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Add
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" [routerLink]="['cars/add']">Car</a>
+            <a class="dropdown-item" [routerLink]="['colors/add']"> Color</a>
+            <a class="dropdown-item" [routerLink]="['brands/add']">Brand</a>
+          </div>
         </li>
       </ul>
       <form class="d-flex">
