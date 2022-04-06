@@ -1,3 +1,4 @@
+import { CarUpdateComponent } from './components/updateComponents/car-update/car-update.component';
 import { CarAddComponent } from './components/addComponents/car-add/car-add.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'cars/add', component: CarAddComponent },
   { path: 'colors/add', component: ColorAddComponent },
   { path: 'brands/add', component: BrandAddComponent },
+  { path: 'cars/update', component: CarUpdateComponent },
 ];
 
 @NgModule({

@@ -29,4 +29,8 @@ export class CarService {
     let localApi = this.apiUrl + 'add';
     return this.httpClient.post<SingleResponseModel<Car>>(localApi, car);
   }
+  updateCar(car: Car): Observable<SingleResponseModel<Car>> {
+    let localApi = this.apiUrl + 'update';
+    return this.httpClient.put<SingleResponseModel<Car>>(localApi, car);
+  }
 }

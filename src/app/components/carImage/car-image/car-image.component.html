@@ -1,18 +1,32 @@
-<div class="row">
+<div class="row" *ngIf="currentCarDto">
   <div class="col-md-9">
-    <div *ngIf="currentCarDto" class="p-3" align="center">
-      <strong>
-        {{ description }}
-      </strong>
-      <p>
-        {{ currentCarDto.dailyPrice | currency }}
-      </p>
+    <div>
+      <div class="p-3" align="center">
+        <strong>
+          {{ currentCarDto.description }}
+        </strong>
+        <p>
+          {{ currentCarDto.dailyPrice | currency }}
+        </p>
+      </div>
     </div>
   </div>
-  <div class="col-md-3 mt-3">
-    <button class="btn btn-primary">Update Car Details</button>
-  </div>
+  <!-- Modal Trigger Button -->
+  <div class="col-md-3 mt-3" align="right">
+    <div>
+      <button
+        class="btn btn-primary"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+      >
+        Update Car Details
+      </button>
 
+      <!-- Car Update Modal -->
+
+      <app-car-update [id]="currentCarDto.id"></app-car-update>
+    </div>
+  </div>
   <div
     *ngFor="let images of currentDtoImages"
     class="card m-1"

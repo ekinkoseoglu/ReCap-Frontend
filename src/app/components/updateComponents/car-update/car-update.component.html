@@ -1,0 +1,115 @@
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Update Car Details</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="updateCarFormGroup">
+          <input
+            formControlName="id"
+            class="form-control"
+            type="text"
+            placeholder="{{ id }}"
+            readonly
+          />
+
+          <div class="m-2">
+            <div>
+              <label for="carName"><strong>Car Name</strong> </label>
+              <input
+                formControlName="carName"
+                type="text"
+                id="carName"
+                class="form-control"
+                aria-describedby="Car Name"
+                placeholder="Enter Car Name"
+              />
+            </div>
+
+            <div class="mt-4">
+              <label for="brandId"> <strong>Brand ID </strong></label>
+              <input
+                formControlName="brandId"
+                type="number"
+                class="form-control"
+                id="brandId"
+                placeholder="Brand Id Number"
+              />
+            </div>
+            <div class="mt-4">
+              <label for="colorId"> <strong>Color ID</strong></label>
+              <input
+                formControlName="colorId"
+                type="number"
+                class="form-control"
+                id="colorId"
+                placeholder="Color Id Number"
+              />
+            </div>
+            <div class="mt-4">
+              <label for="modelYear"><strong>Model Year</strong></label>
+              <input
+                formControlName="modelYear"
+                type="text"
+                class="form-control"
+                id="modelYear"
+                placeholder="Model Year"
+              />
+            </div>
+            <div class="mt-4">
+              <label for="dailyPrice"><strong>Daily Price</strong></label>
+              <input
+                formControlName="dailyPrice"
+                type="number"
+                class="form-control"
+                id="dailyPrice"
+                placeholder="Enter Daily Price"
+              />
+            </div>
+            <div class="mt-4">
+              <label for="description"><strong>Description</strong></label>
+              <input
+                formControlName="description"
+                type="text"
+                class="form-control"
+                id="description"
+                placeholder="Car Description"
+              />
+            </div>
+          </div>
+        </form>
+
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+          <button
+            type="button"
+            data-bs-dismiss="modal"
+            class="btn btn-primary"
+            (click)="updateCar()"
+          >
+            Save changes
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
