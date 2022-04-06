@@ -1,11 +1,12 @@
 <div class="card-header mt-2" align="center"><h2>ADD NEW COLOR</h2></div>
 <div class="m-3" align="center">
   <div class="card-body">
-    <form>
+    <form [formGroup]="addColorFormGroup">
       <div class="col-md-10 m-2">
         <div>
           <label for="colorName"><strong>Color Name</strong> </label>
           <input
+            formControlName="name"
             type="text"
             id="colorName"
             class="form-control"
@@ -15,7 +16,9 @@
         </div>
       </div>
       <div class="card-footer" align="right">
-        <button type="button" class="btn btn-success pull-left">Add</button>
+        <button type="button" class="btn btn-success pull-left" (click)="add()">
+          Add
+        </button>
       </div>
     </form>
   </div>

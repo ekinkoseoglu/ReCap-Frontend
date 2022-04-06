@@ -52,7 +52,11 @@ export class CarAddComponent implements OnInit {
           }
         },
         (errorResponse) => {
-          console.log(errorResponse);
+          for (let i = 0; i < errorResponse.error.Errors.length; i++) {
+            this.toastrService.error(
+              errorResponse.error.Errors[i].ErrorMessage
+            );
+          }
         }
       );
     } else {
