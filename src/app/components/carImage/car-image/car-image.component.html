@@ -1,13 +1,21 @@
 <div class="row">
-  <strong>
-    {{ currentCarDto.description }}
-  </strong>
-  <p>
-    {{ currentCarDto.dailyPrice | currency }}
-  </p>
+  <div class="col-md-9">
+    <div *ngIf="currentCarDto" class="p-3" align="center">
+      <strong>
+        {{ description }}
+      </strong>
+      <p>
+        {{ currentCarDto.dailyPrice | currency }}
+      </p>
+    </div>
+  </div>
+  <div class="col-md-3 mt-3">
+    <button class="btn btn-primary">Update Car Details</button>
+  </div>
+
   <div
     *ngFor="let images of currentDtoImages"
-    class="card"
+    class="card m-1"
     style="width: 18rem"
   >
     <img class="card-img-top" [src]="imageBasePath + images.imageUrl" />

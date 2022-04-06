@@ -1,11 +1,12 @@
 <div class="card-header mt-2" align="center"><h2>ADD NEW Brand</h2></div>
 <div class="m-3" align="center">
   <div class="card-body">
-    <form>
+    <form [formGroup]="addBrandFormGroup">
       <div class="col-md-10 m-2">
         <div>
           <label for="brandName"><strong>Brand Name</strong> </label>
           <input
+            formControlName="name"
             type="text"
             id="brandName"
             class="form-control"
@@ -15,7 +16,13 @@
         </div>
       </div>
       <div class="card-footer" align="right">
-        <button type="button" class="btn btn-success pull-left">Add</button>
+        <button
+          type="button"
+          class="btn btn-success pull-left"
+          (click)="addBrand()"
+        >
+          Add
+        </button>
       </div>
     </form>
   </div>

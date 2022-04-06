@@ -14,6 +14,7 @@ import { CarImageService } from 'src/app/services/carImage/car-image.service';
 export class CarImageComponent implements OnInit {
   currentCarDto: CarDto;
   currentDtoImages: CarImage[];
+  description: string;
   imageBasePath: string = 'https://localhost:44391';
 
   constructor(
@@ -28,6 +29,7 @@ export class CarImageComponent implements OnInit {
     this.activatedRoute.params.subscribe((params) => {
       if (params['Id']) {
         this.getCurrentCarDto(params['Id']);
+        this.description = this.currentCarDto.description;
       } else {
         this.getAllImages();
       }
